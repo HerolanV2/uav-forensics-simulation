@@ -12,3 +12,11 @@ This repository includes a Python script for the generation of the simulated UAV
 ```bash
 pip install -r requirements.txt
 python generate_dataset.py
+
+
+---
+For academic research only – © 2025 Hakan Emre Erolan, National College of Ireland.
+### 💾 4. Commit Et
+```bash
+git add .
+git commit -m "Initial commit: dataset generator script and documentation"
