@@ -1,0 +1,7 @@
+Generation start (UTC): 2025-11-11T12:14:40.580616
+RANDOM_SEED=42
+N_PER_CLASS=500
+
+Saved drone_simulation_dataset.csv with 1500 rows
+Generation end (UTC): 2025-11-11T12:14:40.595405
+SHA256: 943d6205ffe9eb110cec5e20c565e8500365173c601c85eb3a62b3f51f5e5642
