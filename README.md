@@ -12,3 +12,9 @@ This repository includes a Python script for the generation of the simulated UAV
 ```bash
 pip install -r requirements.txt
 python generate_dataset.py
+
+---
+
+```bash
+git add .
+git commit -m "Initial commit: dataset generator script and documentation"
