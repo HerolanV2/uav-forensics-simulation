@@ -8,11 +8,10 @@ This repository includes a Python script for the generation of the simulated UAV
 - `drone_simulation_dataset.csv`: Generated output (after running the script).
 - `generation_output.txt`: Log file with metadata (timestamp, SHA256 hash).
 
+For academic research only – © 2025 Hakan Emre Erolan, National College of Ireland.
+
 ## Usage
 ```bash
 pip install -r requirements.txt
 python generate_dataset.py
 
-
----
-For academic research only – © 2025 Hakan Emre Erolan, National College of Ireland.
