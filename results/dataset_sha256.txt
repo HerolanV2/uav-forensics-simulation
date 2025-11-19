@@ -1,0 +1,6 @@
+﻿
+Algorithm       Hash                                                                   Path                            
+---------       ----                                                                   ----                            
+SHA256          943D6205FFE9EB110CEC5E20C565E8500365173C601C85EB3A62B3F51F5E5642       C:\Users\hakan\Desktop\Codes\...
+
+
