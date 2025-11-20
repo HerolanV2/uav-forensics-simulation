@@ -6,7 +6,6 @@ This repository includes a Python script for the generation of the simulated UAV
 ### Dataset Files (`/datasets`)
 - `drone_simulation_dataset.csv`: Synthetic dataset used for machine learning classification.
 - `flight_log.csv`: Simulated UAV telemetry dataset used for forensic analysis.
-- `dataset_sha256.txt`: SHA256 integrity hash values for generated datasets.
 
 ### Script Files (`/scripts`)
 - `generate_dataset.py`: Script that generates the machine learning dataset.
@@ -18,6 +17,7 @@ This repository includes a Python script for the generation of the simulated UAV
 - `Random_Forest_confusion_matrix.png`: Confusion matrix for Random Forest model.
 - `SVM_confusion_matrix.png`: Confusion matrix for SVM model.
 - `Logistic_Regression_confusion_matrix.png`: Confusion matrix for Logistic Regression model.
+- `dataset_sha256.txt`: SHA256 integrity hash values for generated datasets.
 
 ### Other
 - `requirements.txt`: Python dependencies required to run scripts.
