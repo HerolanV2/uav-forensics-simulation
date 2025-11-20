@@ -2,13 +2,15 @@
 import pandas as pd
 import datetime as dt
 import matplotlib.pyplot as plt
-
+from pathlib import Path
 
 # -------- CONFIGURATION --------
-INPUT_FILE = "datasets/flight_log.csv"
-OUTPUT_EVENTS = "results/gps_spoofing_events.csv"
-OUTPUT_LOG = "results/gps_spoofing_log.txt"
-OUTPUT_PLOT = "results/gps_drift_plot.png"
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATASETS_DIR = BASE_DIR / "datasets"
+RESULTS_DIR = BASE_DIR / "results"
+INPUT_FILE = DATASETS_DIR / "flight_log.csv"
+OUTPUT_EVENTS = RESULTS_DIR / "rf_jamming_events.csv"
+OUTPUT_LOG = RESULTS_DIR / "rf_jamming_log.txt"
 THRESHOLD = 3.0  # meters
 # --------------------------------
 
@@ -52,5 +54,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
