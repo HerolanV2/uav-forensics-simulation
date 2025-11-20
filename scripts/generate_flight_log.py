@@ -2,6 +2,11 @@
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATASETS_DIR = BASE_DIR / "datasets"
+RESULTS_DIR = BASE_DIR / "results"
 
 # Number of telemetry records to generate
 N = 1500  
@@ -25,5 +30,6 @@ df = pd.DataFrame({
 })
 
 # Save generated telemetry to CSV
-df.to_csv("flight_log.csv", index=False)
+df.to_csv(DATASETS_DIR / "flight_log.csv", index=False)
 print("flight_log.csv has been successfully generated.")
+
