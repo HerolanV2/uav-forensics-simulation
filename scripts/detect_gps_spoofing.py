@@ -27,7 +27,7 @@ def main():
     with open(OUTPUT_LOG, "w") as log:
         log.write("GPS Spoofing Detection Log\n")
         log.write("-----------------------------------\n")
-        log.write(f"Execution Time (UTC): {datetime.utcnow()}\n")
+        log.write(f"Execution Time (UTC): {dt.datetime.utcnow()}\n")
         log.write(f"Input File: {INPUT_FILE}\n")
         log.write(f"Output File: {OUTPUT_EVENTS}\n")
         log.write(f"Threshold: {THRESHOLD} meters\n")
@@ -61,6 +61,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
