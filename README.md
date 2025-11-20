@@ -17,6 +17,11 @@ This repository includes a Python script for the generation of the simulated UAV
 - `Random_Forest_confusion_matrix.png`: Confusion matrix for Random Forest model.
 - `SVM_confusion_matrix.png`: Confusion matrix for SVM model.
 - `Logistic_Regression_confusion_matrix.png`: Confusion matrix for Logistic Regression model.
+- `gps_spoofing_events.csv`: Extracted GPS spoofing events.
+- `gps_spoofing_log.txt`: Forensic log for GPS spoofing detection.
+- `rf_jamming_events.csv`: Extracted RF jamming events.
+- `rf_jamming_log.txt`: Forensic log for RF jamming detection.
+- `gps_drift_plot.png`: Visualization of GPS drift with spoofing threshold.
 - `dataset_sha256.txt`: SHA256 integrity hash values for generated datasets.
 
 ### Other
