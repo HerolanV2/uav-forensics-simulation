@@ -1,0 +1,16 @@
+RF Jamming Detection Log
+-----------------------------------
+Execution Time (UTC): 2025-11-20T00:33:16.162684Z
+Input File: flight_log.csv
+Output File: rf_jamming_events.csv
+Threshold: -75.0 dBm
+Total Records Analyzed: 1500
+Total RF Jamming Events: 4
+
+First 5 detected events:
+-----------------------------------
+               timestamp   latitude  longitude    altitude     speed     heading  signal_strength  gps_drift
+139  2025-01-01 12:02:19  53.349689  -6.260268  119.167939  7.217451  224.601334       -76.074977   1.118301
+257  2025-01-01 12:04:17  53.349747  -6.259811  117.381804  8.080512  327.420651       -77.261432   0.709588
+1142 2025-01-01 12:19:02  53.349383  -6.260038  120.568626  9.852928    7.785677       -77.859982   0.390263
+1336 2025-01-01 12:22:16  53.350256  -6.260112  122.479650  7.455812  345.002135       -77.451110   0.875475

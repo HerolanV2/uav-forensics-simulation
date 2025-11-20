@@ -1,0 +1,18 @@
+GPS Spoofing Detection Log
+-----------------------------------
+Execution Time (UTC): 2025-11-20T00:40:48.877108Z
+Input File: flight_log.csv
+Output Events File: gps_spoofing_events.csv
+Output Plot File: gps_drift_plot.png
+Threshold: 3.0 meters
+Total Records Analyzed: 1500
+Total Spoofing Events: 99
+
+First 5 spoofing events:
+-----------------------------------
+             timestamp   latitude  longitude    altitude     speed     heading  signal_strength  gps_drift
+3  2025-01-01 12:00:03  53.349107  -6.259201  121.743761  8.702105  224.206317       -57.572696   3.144949
+5  2025-01-01 12:00:05  53.350735  -6.260469  119.457718  8.185671  157.188997       -56.630221   3.797823
+13 2025-01-01 12:00:13  53.350088  -6.259532  117.718978  7.774365  285.384788       -61.939330   3.107144
+52 2025-01-01 12:00:52  53.349970  -6.260724  121.941952  6.444520  262.134372       -55.920210   3.864638
+79 2025-01-01 12:01:19  53.349903  -6.260011  117.823407  7.246215  304.540986       -56.429101   3.088952
