@@ -1,11 +1,12 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import datetime as dt
 from pathlib import Path
-
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATASETS_DIR = BASE_DIR / "datasets"
 RESULTS_DIR = BASE_DIR / "results"
+
 INPUT_FILE = DATASETS_DIR / "flight_log.csv"
 OUTPUT_EVENTS = RESULTS_DIR / "gps_spoofing_events.csv"
 OUTPUT_LOG = RESULTS_DIR / "gps_spoofing_log.txt"
@@ -40,6 +41,18 @@ def main():
             log.write(spoof_events.head().to_string())
         else:
             log.write("No spoofing events detected.\n")
+    
+    # Create and save plot
+    plt.figure(figsize=(12, 4))
+    plt.plot(df["timestamp"], df["gps_drift"], label="GPS Drift")
+    plt.axhline(THRESHOLD, color="red", linestyle="--", label="Spoofing Threshold")
+    plt.xlabel("Time")
+    plt.ylabel("GPS Drift (meters)")
+    plt.title("GPS Drift Over Time (Spoofing Detection)")
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(OUTPUT_PLOT)
+    plt.close()
 
     print("GPS spoofing detection completed.")
     print(f"Events saved to: {OUTPUT_EVENTS}")
@@ -50,13 +63,4 @@ if __name__ == "__main__":
     main()
 
 
-plt.figure(figsize=(12,4))
-plt.plot(df["timestamp"], df["gps_drift"], label="GPS Drift")
-plt.axhline(3.0, color="red", linestyle="--", label="Spoofing Threshold")
-plt.xlabel("Time")
-plt.ylabel("GPS Drift (meters)")
-plt.title("GPS Drift Over Time (Spoofing Detection)")
-plt.legend()
-plt.tight_layout()
-plt.show()
 
