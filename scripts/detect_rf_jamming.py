@@ -33,7 +33,6 @@ def main():
         log.write(f"Execution Time (UTC): {dt.datetime.utcnow().isoformat()}Z\n")
         log.write(f"Input File: {INPUT_FILE}\n")
         log.write(f"Output Events File: {OUTPUT_EVENTS}\n")
-        log.write(f"Output Plot File: {OUTPUT_PLOT}\n")
         log.write(f"Threshold: {THRESHOLD} meters\n")
         log.write(f"Total Records Analyzed: {len(df)}\n")
         log.write(f"Total Spoofing Events: {len(spoof_events)}\n\n")
@@ -49,11 +48,11 @@ def main():
     print("GPS spoofing detection completed successfully.")
     print(f"- Events saved to: {OUTPUT_EVENTS}")
     print(f"- Log saved to: {OUTPUT_LOG}")
-    print(f"- Plot saved to: {OUTPUT_PLOT}")
 
 
 if __name__ == "__main__":
     main()
+
 
 
 
