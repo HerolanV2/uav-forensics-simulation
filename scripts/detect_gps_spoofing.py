@@ -2,9 +2,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-INPUT_FILE = "flight_log.csv"
-OUTPUT_EVENTS = "gps_spoofing_events.csv"
-OUTPUT_LOG = "gps_spoofing_log.txt"
+INPUT_FILE = "datasets/flight_log.csv"
+OUTPUT_EVENTS = "results/gps_spoofing_events.csv"
+OUTPUT_LOG = "results/gps_spoofing_log.txt"
 THRESHOLD = 3.0   
 
 def main():
@@ -54,3 +54,4 @@ plt.title("GPS Drift Over Time (Spoofing Detection)")
 plt.legend()
 plt.tight_layout()
 plt.show()
+
