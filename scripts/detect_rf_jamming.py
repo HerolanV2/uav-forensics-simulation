@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 
 
 # -------- CONFIGURATION --------
-INPUT_FILE = "flight_log.csv"
-OUTPUT_EVENTS = "gps_spoofing_events.csv"
-OUTPUT_LOG = "gps_spoofing_log.txt"
-OUTPUT_PLOT = "gps_drift_plot.png"
+INPUT_FILE = "datasets/flight_log.csv"
+OUTPUT_EVENTS = "results/gps_spoofing_events.csv"
+OUTPUT_LOG = "results/gps_spoofing_log.txt"
+OUTPUT_PLOT = "results/gps_drift_plot.png"
 THRESHOLD = 3.0  # meters
 # --------------------------------
 
@@ -52,4 +52,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
