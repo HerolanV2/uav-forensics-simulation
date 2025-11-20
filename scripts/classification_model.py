@@ -17,8 +17,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # --- 1. Load Dataset ---
-df = pd.read_csv(r"C:\Users\hakan\Desktop\Codes\dataset\drone_simulation_dataset.csv")
-print("✅ Dataset loaded:", df.shape)
+df = pd.read_csv("datasets/drone_simulation_dataset.csv")
+print("Dataset loaded:", df.shape)
 print(df.head())
 
 # --- 2. Features and Labels Split ---
@@ -75,13 +75,13 @@ for name, model in models.items():
     plt.xlabel("Predicted")
     plt.ylabel("Actual")
     plt.tight_layout()
-    plt.savefig(f"{name.replace(' ','_')}_confusion_matrix.png")
+    plt.savefig(f"results/{name.replace(' ','_')}_confusion_matrix.png")
     plt.close()
 
 # --- 8. Results Table ---
 results_df = pd.DataFrame(results, columns=["Model", "Accuracy", "Precision", "Recall", "F1-Score"])
-print("\n📊 Model Comparison:\n")
+print("\n Model Comparison:\n")
 print(results_df)
 
-results_df.to_csv("classification_results.csv", index=False)
+results_df.to_csv("results/classification_results.csv", index=False)
 print("\n Results saved as classification_results.csv")
