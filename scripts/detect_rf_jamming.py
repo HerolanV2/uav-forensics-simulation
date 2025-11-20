@@ -24,18 +24,6 @@ def main():
     # Save events to CSV
     spoof_events.to_csv(OUTPUT_EVENTS, index=False)
 
-    # Generate and save plot
-    plt.figure(figsize=(12, 4))
-    plt.plot(df["timestamp"], df["gps_drift"], label="GPS Drift")
-    plt.axhline(THRESHOLD, color="red", linestyle="--", label="Spoofing Threshold")
-    plt.xlabel("Time")
-    plt.ylabel("GPS Drift (meters)")
-    plt.title("GPS Drift Over Time (Spoofing Detection)")
-    plt.legend()
-    plt.tight_layout()
-    plt.savefig(OUTPUT_PLOT)
-    plt.close()
-
     # Create forensic log
     with open(OUTPUT_LOG, "w", encoding="utf-8") as log:
         log.write("GPS Spoofing Detection Log\n")
@@ -64,3 +52,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
