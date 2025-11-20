@@ -17,11 +17,17 @@ from pathlib import Path
 # ---------- CONFIG ----------
 RANDOM_SEED = 42
 N_PER_CLASS = 500           # total rows = 3 * N_PER_CLASS (changeable)
+GPS_THRESHOLD = 3.0         # meters (spoofing threshold)
+JAM_THRESHOLD = -75.0       # dBm (jamming threshold)
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATASETS_DIR = BASE_DIR / "datasets"
 RESULTS_DIR = BASE_DIR / "results"
 OUT_CSV = DATASETS_DIR / "drone_simulation_dataset.csv"
 LOG_FILE = RESULTS_DIR / "generation_output.txt"
+# Load flight log to extract timestamps
+FLIGHT_LOG = DATASETS_DIR / "flight_log.csv"
+flight_df = pd.read_csv(FLIGHT_LOG, parse_dates=["timestamp"])
+timestamps = flight_df["timestamp"].reset_index(drop=True)
 # ----------------------------
 
 np.random.seed(RANDOM_SEED)
@@ -82,13 +88,25 @@ def main():
         log.write(f"Generation start (UTC): {start.isoformat()}\n")
         log.write(f"RANDOM_SEED={RANDOM_SEED}\n")
         log.write(f"N_PER_CLASS={N_PER_CLASS}\n\n")
+       
         # generate
         df_normal = make_normal(N_PER_CLASS)
         df_spoof = make_gps_spoofing(N_PER_CLASS)
         df_jam = make_rf_jamming(N_PER_CLASS)
         df = pd.concat([df_normal, df_spoof, df_jam], ignore_index=True)
+       
+        # Forensic flags based on telemetry thresholds
+        df["spoofing_flag"] = df["gps_drift"] > GPS_THRESHOLD
+        df["jamming_flag"] = df["signal_strength"] < JAM_THRESHOLD
+
+        # Ground-truth label derived from forensic flags
+        df["label"] = df.apply(
+            lambda row: "gps_spoofing" if row["spoofing_flag"]
+            else ("rf_jamming" if row["jamming_flag"] else "normal"),
+            axis=1)
+        # Attach timestamps to ML dataset
+        df["timestamp"] = timestamps[:len(df)]
         # shuffle
-        df = df.sample(frac=1.0, random_state=RANDOM_SEED).reset_index(drop=True)
         df.to_csv(OUT_CSV, index=False)
         end = datetime.utcnow()
         log.write(f"Saved {OUT_CSV} with {len(df)} rows\n")

@@ -1,16 +1,17 @@
-RF Jamming Detection Log
+GPS Spoofing Detection Log
 -----------------------------------
-Execution Time (UTC): 2025-11-20T00:33:16.162684Z
-Input File: flight_log.csv
-Output File: rf_jamming_events.csv
-Threshold: -75.0 dBm
+Execution Time (UTC): 2025-11-20T05:34:14.997849Z
+Input File: C:\Users\hakan\Desktop\uav-forensics-simulation-main\datasets\flight_log.csv
+Output Events File: C:\Users\hakan\Desktop\uav-forensics-simulation-main\results\rf_jamming_events.csv
+Threshold: 3.0 meters
 Total Records Analyzed: 1500
-Total RF Jamming Events: 4
+Total Spoofing Events: 100
 
-First 5 detected events:
+First 5 spoofing events:
 -----------------------------------
-               timestamp   latitude  longitude    altitude     speed     heading  signal_strength  gps_drift
-139  2025-01-01 12:02:19  53.349689  -6.260268  119.167939  7.217451  224.601334       -76.074977   1.118301
-257  2025-01-01 12:04:17  53.349747  -6.259811  117.381804  8.080512  327.420651       -77.261432   0.709588
-1142 2025-01-01 12:19:02  53.349383  -6.260038  120.568626  9.852928    7.785677       -77.859982   0.390263
-1336 2025-01-01 12:22:16  53.350256  -6.260112  122.479650  7.455812  345.002135       -77.451110   0.875475
+              timestamp   latitude  longitude    altitude     speed     heading  signal_strength  gps_drift
+11  2025-01-01 12:00:11  53.350019  -6.259883  120.588922  9.333473  181.759402       -63.135719   3.012323
+28  2025-01-01 12:00:28  53.349404  -6.260964  123.886311  6.864973    3.957380       -62.724531   3.650323
+69  2025-01-01 12:01:09  53.349969  -6.260238  121.692243  8.982844   66.975647       -56.857868   3.548316
+77  2025-01-01 12:01:17  53.349717  -6.260115  121.328433  8.930398  349.911921       -49.146364   3.537614
+171 2025-01-01 12:02:51  53.349508  -6.261049  121.388545  8.955722   68.109497       -57.595201   3.916006
