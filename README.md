@@ -11,6 +11,7 @@ This repository includes a Python script for the generation of the simulated UAV
 - `generate_dataset.py`: Script that generates the machine learning dataset.
 - `generate_flight_log.py`: Script that generates the telemetry (flight log) dataset.
 - `classification_model.py`: Machine learning model training and evaluation script.
+- `generate_forensic_timeline.py`: Script that generates the combined forensic timeline (spoofing + jamming).
 
 ### Result Files (`/results`)
 - `classification_results.csv`: Performance metrics (accuracy, precision, recall, F1-score).
@@ -23,6 +24,9 @@ This repository includes a Python script for the generation of the simulated UAV
 - `rf_jamming_log.txt`: Forensic log for RF jamming detection.
 - `gps_drift_plot.png`: Visualization of GPS drift with spoofing threshold.
 - `dataset_sha256.txt`: SHA256 integrity hash values for generated datasets.
+- `forensic_timeline.png`: Visual timeline of GPS spoofing and RF jamming events.
+- `forensic_timeline_log.txt`: Log file summarising timeline generation.
+
 
 ### Other
 - `requirements.txt`: Python dependencies required to run scripts.
