@@ -12,12 +12,16 @@ import hashlib
 import numpy as np
 import pandas as pd
 from datetime import datetime
+from pathlib import Path
 
 # ---------- CONFIG ----------
 RANDOM_SEED = 42
 N_PER_CLASS = 500           # total rows = 3 * N_PER_CLASS (changeable)
-OUT_CSV = "datasets/drone_simulation_dataset.csv"
-LOG_FILE = "results/generation_output.txt"
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATASETS_DIR = BASE_DIR / "datasets"
+RESULTS_DIR = BASE_DIR / "results"
+OUT_CSV = DATASETS_DIR / "drone_simulation_dataset.csv"
+LOG_FILE = RESULTS_DIR / "generation_output.txt"
 # ----------------------------
 
 np.random.seed(RANDOM_SEED)
@@ -99,4 +103,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
