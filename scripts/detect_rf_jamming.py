@@ -1,58 +1,55 @@
-
 import pandas as pd
 import datetime as dt
-import matplotlib.pyplot as plt
 from pathlib import Path
 
 # -------- CONFIGURATION --------
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATASETS_DIR = BASE_DIR / "datasets"
 RESULTS_DIR = BASE_DIR / "results"
+
 INPUT_FILE = DATASETS_DIR / "flight_log.csv"
 OUTPUT_EVENTS = RESULTS_DIR / "rf_jamming_events.csv"
 OUTPUT_LOG = RESULTS_DIR / "rf_jamming_log.txt"
-THRESHOLD = 3.0  # meters
+
+THRESHOLD = -75.0  # dBm – RF jamming threshold
 # --------------------------------
 
 
 def main():
-
-    # Load telemetry CSV
+    # Read flight telemetry
     df = pd.read_csv(INPUT_FILE, parse_dates=["timestamp"])
 
-    # Detect spoofing events
-    spoof_events = df[df["gps_drift"] > THRESHOLD].copy()
+    # Detect RF jamming events: low signal strength
+    jamming_events = df[df["signal_strength"] < THRESHOLD].copy()
 
-    # Save events to CSV
-    spoof_events.to_csv(OUTPUT_EVENTS, index=False)
+    # Ensure results directory exists
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Create forensic log
-    with open(OUTPUT_LOG, "w", encoding="utf-8") as log:
-        log.write("GPS Spoofing Detection Log\n")
+    # Save detected events to CSV
+    jamming_events.to_csv(OUTPUT_EVENTS, index=False)
+
+    # Write forensic log
+    with open(OUTPUT_LOG, "w") as log:
+        log.write("RF Jamming Detection Log\n")
         log.write("-----------------------------------\n")
         log.write(f"Execution Time (UTC): {dt.datetime.utcnow().isoformat()}Z\n")
         log.write(f"Input File: {INPUT_FILE}\n")
         log.write(f"Output Events File: {OUTPUT_EVENTS}\n")
-        log.write(f"Threshold: {THRESHOLD} meters\n")
+        log.write(f"Threshold: {THRESHOLD} dBm\n")
         log.write(f"Total Records Analyzed: {len(df)}\n")
-        log.write(f"Total Spoofing Events: {len(spoof_events)}\n\n")
+        log.write(f"Total RF Jamming Events: {len(jamming_events)}\n\n")
 
-        # First 5 event preview
-        log.write("First 5 spoofing events:\n")
+        log.write("First detected events (up to 5 rows):\n")
         log.write("-----------------------------------\n")
-        if len(spoof_events) > 0:
-            log.write(spoof_events.head().to_string())
+        if len(jamming_events) > 0:
+            log.write(jamming_events.head().to_string())
         else:
-            log.write("No spoofing events detected.\n")
+            log.write("No RF jamming events detected.\n")
 
-    print("GPS spoofing detection completed successfully.")
+    print("RF jamming detection completed successfully.")
     print(f"- Events saved to: {OUTPUT_EVENTS}")
     print(f"- Log saved to: {OUTPUT_LOG}")
 
 
 if __name__ == "__main__":
     main()
-
-
-
-

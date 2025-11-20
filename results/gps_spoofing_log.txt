@@ -1,17 +1,17 @@
 GPS Spoofing Detection Log
 -----------------------------------
-Execution Time (UTC): 2025-11-20 05:34:06.887002
-Input File: C:\Users\hakan\Desktop\uav-forensics-simulation-main\datasets\flight_log.csv
-Output File: C:\Users\hakan\Desktop\uav-forensics-simulation-main\results\gps_spoofing_events.csv
+Execution Time (UTC): 2025-11-20 07:22:16.356147
+Input File: C:\Users\hakan\Desktop\uav-forensics-simulation\datasets\flight_log.csv
+Output File: C:\Users\hakan\Desktop\uav-forensics-simulation\results\gps_spoofing_events.csv
 Threshold: 3.0 meters
 Total Records Analyzed: 1500
-Total Spoofing Events: 100
+Total Spoofing Events: 466
 
 First 5 detected events:
 -----------------------------------
               timestamp   latitude  longitude    altitude     speed     heading  signal_strength  gps_drift
-11  2025-01-01 12:00:11  53.350019  -6.259883  120.588922  9.333473  181.759402       -63.135719   3.012323
-28  2025-01-01 12:00:28  53.349404  -6.260964  123.886311  6.864973    3.957380       -62.724531   3.650323
-69  2025-01-01 12:01:09  53.349969  -6.260238  121.692243  8.982844   66.975647       -56.857868   3.548316
-77  2025-01-01 12:01:17  53.349717  -6.260115  121.328433  8.930398  349.911921       -49.146364   3.537614
-171 2025-01-01 12:02:51  53.349508  -6.261049  121.388545  8.955722   68.109497       -57.595201   3.916006
+500 2025-01-01 12:08:20  53.350159  -6.260544  124.118511  8.314306  320.859947       -58.010944   4.251156
+501 2025-01-01 12:08:21  53.350159  -6.260087  121.942133  8.177790  195.597711       -63.030766   5.109513
+502 2025-01-01 12:08:22  53.351098  -6.260024  119.638412  9.445025  303.094740       -55.785874   4.949394
+503 2025-01-01 12:08:23  53.349381  -6.261076  115.658049  7.959379   93.289330       -61.899866   5.062400
+504 2025-01-01 12:08:24  53.350239  -6.260891  120.084289  8.289597  128.527356       -60.988447   4.357977
