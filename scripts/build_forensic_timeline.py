@@ -1,13 +1,17 @@
 
 import pandas as pd
 import matplotlib.pyplot as plt
+from pathlib import Path
 
-FLIGHT_FILE = "datasets/flight_log.csv"
-SPOOF_FILE = "results/gps_spoofing_events.csv"
-JAM_FILE = "results/rf_jamming_events.csv"
 
-OUTPUT_TIMELINE_CSV = "results/forensic_timeline.csv"
-OUTPUT_TIMELINE_PLOT = "results/forensic_timeline.png"
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATASETS_DIR = BASE_DIR / "datasets"
+RESULTS_DIR = BASE_DIR / "results"
+FLIGHT_FILE = DATASETS_DIR / "flight_log.csv"
+SPOOF_FILE = RESULTS_DIR / "gps_spoofing_events.csv"
+JAM_FILE = RESULTS_DIR / "rf_jamming_events.csv"
+OUTPUT_TIMELINE_CSV = RESULTS_DIR / "forensic_timeline.csv"
+OUTPUT_TIMELINE_PLOT = RESULTS_DIR / "forensic_timeline.png"
 
 
 def main():
@@ -79,4 +83,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
