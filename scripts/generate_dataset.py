@@ -16,8 +16,8 @@ from datetime import datetime
 # ---------- CONFIG ----------
 RANDOM_SEED = 42
 N_PER_CLASS = 500           # total rows = 3 * N_PER_CLASS (changeable)
-OUT_CSV = "drone_simulation_dataset.csv"
-LOG_FILE = "generation_output.txt"
+OUT_CSV = "datasets/drone_simulation_dataset.csv"
+LOG_FILE = "results/generation_output.txt"
 # ----------------------------
 
 np.random.seed(RANDOM_SEED)
@@ -99,3 +99,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
