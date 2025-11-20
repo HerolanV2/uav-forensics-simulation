@@ -1,10 +1,15 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 
-INPUT_FILE = "datasets/flight_log.csv"
-OUTPUT_EVENTS = "results/gps_spoofing_events.csv"
-OUTPUT_LOG = "results/gps_spoofing_log.txt"
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATASETS_DIR = BASE_DIR / "datasets"
+RESULTS_DIR = BASE_DIR / "results"
+INPUT_FILE = DATASETS_DIR / "flight_log.csv"
+OUTPUT_EVENTS = RESULTS_DIR / "gps_spoofing_events.csv"
+OUTPUT_LOG = RESULTS_DIR / "gps_spoofing_log.txt"
+OUTPUT_PLOT = RESULTS_DIR / "gps_drift_plot.png"
 THRESHOLD = 3.0   
 
 def main():
