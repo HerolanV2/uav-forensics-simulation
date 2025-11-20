@@ -2,12 +2,12 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-FLIGHT_FILE = "flight_log.csv"
-SPOOF_FILE = "gps_spoofing_events.csv"
-JAM_FILE = "rf_jamming_events.csv"
+FLIGHT_FILE = "datasets/flight_log.csv"
+SPOOF_FILE = "results/gps_spoofing_events.csv"
+JAM_FILE = "results/rf_jamming_events.csv"
 
-OUTPUT_TIMELINE_CSV = "forensic_timeline.csv"
-OUTPUT_TIMELINE_PLOT = "forensic_timeline.png"
+OUTPUT_TIMELINE_CSV = "results/forensic_timeline.csv"
+OUTPUT_TIMELINE_PLOT = "results/forensic_timeline.png"
 
 
 def main():
@@ -79,3 +79,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
