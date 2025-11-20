@@ -15,9 +15,14 @@ from sklearn.svm import SVC
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 import matplotlib.pyplot as plt
 import seaborn as sns
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATASETS_DIR = BASE_DIR / "datasets"
+RESULTS_DIR = BASE_DIR / "results"
 
 # --- 1. Load Dataset ---
-df = pd.read_csv("datasets/drone_simulation_dataset.csv")
+df = pd.read_csv(DATASETS_DIR / "drone_simulation_dataset.csv")
 print("Dataset loaded:", df.shape)
 print(df.head())
 
@@ -75,7 +80,7 @@ for name, model in models.items():
     plt.xlabel("Predicted")
     plt.ylabel("Actual")
     plt.tight_layout()
-    plt.savefig(f"results/{name.replace(' ','_')}_confusion_matrix.png")
+    plt.savefig(RESULTS_DIR / f"{name.replace(' ','_')}_confusion_matrix.png")
     plt.close()
 
 # --- 8. Results Table ---
@@ -83,5 +88,6 @@ results_df = pd.DataFrame(results, columns=["Model", "Accuracy", "Precision", "R
 print("\n Model Comparison:\n")
 print(results_df)
 
-results_df.to_csv("results/classification_results.csv", index=False)
+results_df.to_csv(RESULTS_DIR / "classification_results.csv", index=False)
 print("\n Results saved as classification_results.csv")
+
